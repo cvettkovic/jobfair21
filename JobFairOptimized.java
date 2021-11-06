@@ -14,7 +14,7 @@ public class JobFairOptimized {
         int max = array[0];
         int min = array[0];
         int currentElement;
-        for (int i = 1; i < size; i++) {
+        for (int i = 1; i < size; i ++) {
             currentElement = array[i];
             if (currentElement > max) {
                 max = currentElement;
@@ -27,27 +27,27 @@ public class JobFairOptimized {
         int[] count = new int[countLength];
 
         // Store the count of each element
-        for (int i = 0; i < size; i++) {
-            count[array[i] - min]++;
+        for (int i = 0; i < size; i ++) {
+            count[array[i] - min] ++;
         }
 
         // Store the cumulative count of each array
         int lastElement = count[0];
-        for (int i = 1; i < countLength; i++) {
+        for (int i = 1; i < countLength; i ++) {
             lastElement = (count[i] += lastElement);
         }
 
         // Find the index of each element of the original array in count array, and
         // place the elements in output array
         int arrayI;
-        for (int i = size - 1; i >= 0; i--) {
+        for (int i = size - 1; i >= 0; i --) {
             arrayI = array[i];
             output[count[arrayI - min] - 1] = arrayI;
-            count[arrayI - min]--;
+            count[arrayI - min] --;
         }
 
         // Copy elements into original array
-        for (int i = 0; i < size; i++) {
+        for (int i = 0; i < size; i ++) {
             array[i] = output[i];
         }
     }
